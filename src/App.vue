@@ -9,6 +9,7 @@ import Question7 from './components/Question7.vue'
 import Question8 from './components/Question8.vue'
 import Question9 from './components/Question9.vue'
 import Question10 from './components/Question10.vue'
+import TotalScoreComponent from './components/TotalScoreComponent.vue'
 
 export default{
   components: {
@@ -22,9 +23,11 @@ export default{
     Question8,
     Question9,
     Question10,
+    TotalScoreComponent,
   },
 data() {  
     return {
+      showScore: true,
       showQuestion1: true,
       showQuestion2: false,
       showQuestion3: false,
@@ -35,6 +38,7 @@ data() {
       showQuestion8: false,
       showQuestion9: false,
       showQuestion10: false,
+      ShowTotalScoreComponent: false,
       score: 0
     };
   },
@@ -77,7 +81,8 @@ data() {
     },
     HideQuestion10() {
       this.showQuestion10 = false
-      //this.showQuestion10 = true = show full score
+      this.showScore = false
+      this.ShowTotalScoreComponent = true
     },
     updateScore(){
       this.score++
@@ -88,7 +93,7 @@ data() {
 
 
 <template>
-  <div class="flex justify-center text-6xl">
+  <div v-show="showScore" class="flex justify-center text-6xl">
     <h1>Score is {{ score }}</h1>
   </div>
 
@@ -130,6 +135,10 @@ data() {
 
   <div v-show="showQuestion10" class="border-2 p-8 my-12">
     <Question10 @HideQ10="HideQuestion10" @updateScoreQ10="updateScore"/>
+  </div>
+
+  <div v-show="ShowTotalScoreComponent" class="border-2 p-8 my-12">
+    <TotalScoreComponent :score="score"/>
   </div>
   
 </template>
