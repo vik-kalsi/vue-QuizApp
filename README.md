@@ -1,12 +1,11 @@
 # vue-QuizApp
 
-This template should help get you started developing with Vue 3 in Vite.
-
 <h3>Quiz App (using Vue JS)</h3>
 <a href="https://vik-kalsi.github.io/vue-QuizApp/">Click here to access the Quiz App</a>
 
 <br>
 
+This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
 
